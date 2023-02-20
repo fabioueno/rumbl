@@ -1,6 +1,8 @@
 defmodule RumblWeb.AuthTest do
   use RumblWeb.ConnCase, async: true
 
+  alias Rumbl.Accounts.User
+
   alias RumblWeb.Auth
 
   setup %{conn: conn} do
@@ -21,7 +23,7 @@ defmodule RumblWeb.AuthTest do
   test "authenticate_user for existing current_user", %{conn: conn} do
     conn =
       conn
-      |> assign(:current_user, %Rumbl.Accounts.User{})
+      |> assign(:current_user, %User{})
       |> Auth.authenticate_user([])
 
     refute conn.halted
@@ -30,7 +32,7 @@ defmodule RumblWeb.AuthTest do
   test "login puts the user in the session", %{conn: conn} do
     login_conn =
       conn
-      |> Auth.login(%Rumbl.Accounts.User{id: 123})
+      |> Auth.login(%User{id: 123})
       |> send_resp(:ok, "")
 
     next_conn = get(login_conn, "/")

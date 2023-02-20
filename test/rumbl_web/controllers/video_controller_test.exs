@@ -46,8 +46,6 @@ defmodule RumblWeb.VideoControllerTest do
 
     @invalid_attrs %{title: "invalid"}
 
-    defp video_count, do: Enum.count(Rumbl.Multimedia.list_videos())
-
     @tag login_as: "max"
     test "creates user video and redirects", %{conn: conn, user: user} do
       create_conn = post conn, Routes.video_path(conn, :create), video: @create_attrs
@@ -70,6 +68,8 @@ defmodule RumblWeb.VideoControllerTest do
       assert html_response(conn, 200) =~ "check the errors"
       assert video_count() == count_before
     end
+
+    defp video_count, do: Enum.count(Multimedia.list_videos())
   end
 
   test "authorizes actions against access by other users", %{conn: conn} do
