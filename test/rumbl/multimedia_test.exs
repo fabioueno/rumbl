@@ -3,6 +3,7 @@ defmodule Rumbl.MultimediaTest do
 
   alias Rumbl.Multimedia
   alias Rumbl.Multimedia.Category
+  alias Rumbl.Multimedia.Video
 
   describe "categories" do
     test "list_alphabetical_categories/0" do
@@ -20,8 +21,6 @@ defmodule Rumbl.MultimediaTest do
   end
 
   describe "videos" do
-    alias Rumbl.Multimedia.Video
-
     @valid_attrs %{description: "desc", title: "title", url: "http://local"}
     @invalid_attrs %{description: nil, title: nil, url: nil}
 
