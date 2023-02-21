@@ -1,5 +1,14 @@
 # Rumbl
 
+This project is used to play videos that are hosted in other platforms. At the
+same time, users can attach comments in real-time! It's being developed while
+reading through [Programming Phoenix 1.4](https://pragprog.com/titles/phoenix14/programming-phoenix-1-4),
+but it's not yet finished, as the framework's current version generates a
+different assets structure than described by the book, and I didn't manage to
+make the video player work.
+
+---
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
